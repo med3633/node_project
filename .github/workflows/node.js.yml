@@ -56,6 +56,8 @@ jobs:
           cd ~/test/ci-cd-AWS/
           git pull origin main
           git status
-          npm install 
-          npm run build
-          npm run generate
+          # npm install 
+          # npm run build
+          # npm run generate
+          docker-compose up -d
+          
