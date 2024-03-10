@@ -39,3 +39,17 @@ jobs:
       with:
        push: true
        tags: mohamedamineblibech/node:latest
+
+    - name: Installing SSH key
+      uses: webfactory/ssh-agent@v0.5.3
+      with:
+        ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+    - name: Deploy to EC2
+      run: |
+        ssh -o StrictHostKeyChecking=no ${{ secrets.EC2_USERNAME }}@${{ secrets.EC2_ADDRESS }} << EOF
+          cd ~/
+          git pull
+          docker-compose down
+          docker-compose up -d --build
+        EOF
