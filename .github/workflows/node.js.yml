@@ -40,10 +40,10 @@ jobs:
        push: true
        tags: mohamedamineblibech/node:latest
 
-    - name: Installing SSH key
-      uses: webfactory/ssh-agent@v0.5.3
-      with:
-        ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+    # - name: Installing SSH key
+    #   uses: webfactory/ssh-agent@v0.5.3
+    #   with:
+    #     ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
     - name: Deploy using ssh
       uses: appleboy/ssh-action@master
@@ -60,4 +60,8 @@ jobs:
           # npm run build
           # npm run generate
           sudo docker-compose up -d
+    - name: Debugging Output
+      run: |
+        echo "Host: ${{ secrets.EC2_ADDRESS }}"
+        echo "Username: ${{ secrets.EC2_USERNAME }}"
           
