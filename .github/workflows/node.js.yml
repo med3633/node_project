@@ -49,8 +49,8 @@ jobs:
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         port: 22
         script: |
-          cd /home/ubuntu/test/ci-cd-AWS
-          git pull 
+          cd ~/test/ci-cd-AWS
+          git pull origin main
           git status
-          sudo docker-compose up -d
+          sudo docker-compose up --build -d
              
