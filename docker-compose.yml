@@ -1,12 +1,12 @@
 version: '3'
 
 services:
-  web:
+  nodeweb:
     build:
       context: .
       dockerfile: Dockerfile
     image: nodejs
-    container_name: web
+    container_name: nodeweb
     restart: unless-stopped
   webserver:
     image: nginx
@@ -20,7 +20,7 @@ services:
       - certbot-etc:/etc/letsencrypt
       - certbot-var:/var/lib/letsencrypt
     depends_on:
-      - web
+      - nodeweb
   certbot:
     image: certbot/certbot
     container_name: certbot
