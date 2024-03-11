@@ -50,7 +50,7 @@ jobs:
         port: 22
         script: |
           echo "Navigating to the project directory..."
-          cd ~/test/ci-cd-AWS/ || exit
+          cd /home/ubuntu/test/ci-cd-AWS/ || exit
           
           echo "Checking current directory..."
           pwd
