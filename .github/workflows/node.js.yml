@@ -53,7 +53,7 @@ jobs:
             git pull origin main
             git status
             sudo docker ps
-            # docker-compose up -d
+            docker-compose up -d
 
     #     script: |
     #       cd /home/ubuntu/test/ci-cd-AWS/
