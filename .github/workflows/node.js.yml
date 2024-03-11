@@ -49,31 +49,8 @@ jobs:
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         port: 22
         script: |
-          # echo "Navigating to the project directory..."
-          # cd /home/ubuntu/test/ci-cd-AWS/ || exit
-          
-          # echo "Checking current directory..."
-          # pwd
-          
-          # echo "Listing files..."
-          # ls -al
-          
-          echo "Pulling latest changes from Git repository..."
-          git pull origin main
-          
-          echo "Running Docker Compose..."
-          sudo docker-compose -f /home/ubuntu/test/ci-cd-AWS/docker-compose.yml up -d
-
-    #     script: |
-    #       cd /home/ubuntu/test/ci-cd-AWS/
-    #       git pull 
-    #       git status
-    #       # npm install 
-    #       # npm run build
-    #       # npm run generate
-    #       sudo docker-compose up -d
-    # - name: Debugging Output
-    #   run: |
-    #     echo "Host: ${{ secrets.EC2_ADDRESS }}"
-    #     echo "Username: ${{ secrets.EC2_USERNAME }}"
-          
+          cd /home/ubuntu/test/ci-cd-AWS/
+          git pull 
+          git status
+          sudo docker-compose up -d
+             
