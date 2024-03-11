@@ -34,11 +34,11 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_TOKEN }}
       
-    # - name: Build and push
-    #   uses: docker/build-push-action@v5
-    #   with:
-    #    push: true
-    #    tags: mohamedamineblibech/node:latest
+    - name: Build and push
+      uses: docker/build-push-action@v5
+      with:
+       push: true
+       tags: mohamedamineblibech/node:latest
 
     
     - name: Deploy using ssh
@@ -49,13 +49,10 @@ jobs:
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         port: 22
         script: |
-            # if [ ! -d "/home/ubuntu/test/ci-cd-AWS/.git" ]; then
-            #   git clone https://github.com/med3633/ci-cd-AWS.git /home/ubuntu/test/ci-cd-AWS/
-            # fi
             cd /home/${{ secrets.EC2_USERNAME }}/test/ci-cd-AWS
             git pull origin main
             git status
-            sudo docker-compose up -d
+            docker-compose up -d
 
     #     script: |
     #       cd /home/ubuntu/test/ci-cd-AWS/
