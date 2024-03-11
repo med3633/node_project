@@ -53,11 +53,11 @@ jobs:
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         port: 22
         script: |
-            if [ ! -d "/home/ubuntu/test/ci-cd-AWS/.git" ]; then
-              git clone https://github.com/med3633/ci-cd-AWS.git /home/ubuntu/test/ci-cd-AWS/
-            fi
+            # if [ ! -d "/home/ubuntu/test/ci-cd-AWS/.git" ]; then
+            #   git clone https://github.com/med3633/ci-cd-AWS.git /home/ubuntu/test/ci-cd-AWS/
+            # fi
             cd /home/ubuntu/test/ci-cd-AWS/
-            git pull
+            git pull origin main
             git status
             sudo docker-compose up -d
 
