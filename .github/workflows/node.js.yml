@@ -49,7 +49,7 @@ jobs:
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         port: 22
         script: |
-            cd /home/${{ secrets.EC2_USERNAME }}/test/ci-cd-AWS/
+            cd ~/test/ci-cd-AWS/
             git pull origin main
             git status
             docker ps
