@@ -49,7 +49,7 @@ jobs:
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         port: 22
         script: |
-          cd ~/ci-cd-AWS
+          cd ~/node_project
           git pull origin main
           git status
           sudo docker-compose up --build -d
