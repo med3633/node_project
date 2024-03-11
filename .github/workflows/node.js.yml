@@ -49,20 +49,20 @@ jobs:
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         port: 22
         script: |
-          echo "Navigating to the project directory..."
-          cd /home/ubuntu/test/ci-cd-AWS/ || exit
+          # echo "Navigating to the project directory..."
+          # cd /home/ubuntu/test/ci-cd-AWS/ || exit
           
-          echo "Checking current directory..."
-          pwd
+          # echo "Checking current directory..."
+          # pwd
           
-          echo "Listing files..."
-          ls -al
+          # echo "Listing files..."
+          # ls -al
           
           echo "Pulling latest changes from Git repository..."
           git pull origin main
           
           echo "Running Docker Compose..."
-          sudo docker-compose up -d
+          sudo docker-compose -f /home/ubuntu/test/ci-cd-AWS/docker-compose.yml up -d
 
     #     script: |
     #       cd /home/ubuntu/test/ci-cd-AWS/
