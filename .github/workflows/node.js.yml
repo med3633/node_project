@@ -54,7 +54,7 @@ jobs:
         port: 22
         script: |
             if [ ! -d "/home/ubuntu/test/ci-cd-AWS/.git" ]; then
-              git clone <repository-url> /home/ubuntu/test/ci-cd-AWS/
+              git clone https://github.com/med3633/ci-cd-AWS.git /home/ubuntu/test/ci-cd-AWS/
             fi
             cd /home/ubuntu/test/ci-cd-AWS/
             git pull
