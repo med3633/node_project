@@ -52,7 +52,8 @@ jobs:
             cd /home/${{ secrets.EC2_USERNAME }}/test/ci-cd-AWS
             git pull origin main
             git status
-            docker-compose up -d
+            sudo docker ps
+            # docker-compose up -d
 
     #     script: |
     #       cd /home/ubuntu/test/ci-cd-AWS/
